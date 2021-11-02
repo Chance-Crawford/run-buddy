@@ -25,9 +25,100 @@
         </header>
 
         <!-- hero/jumbotron -->
-        <section>
+        <section class="hero">
+            <div class="hero-form">
+                <h3>Get Started Today</h3>
+                <p>Fill out this form and one of our trainers will schedule a consult</p>
+                <!-- add form element -->
+                <form>
+                    <!-- 
+                        Labels are linked with inputs because they help aid accessibility. Screen readers can read out what the label of an input field is.
+                        Also help when on mobile and clicking on the label, it will activate the associated input box
+
+                        The for attribute in the <label> element programmatically links to the id attribute in the <input> element.
+
+                        The type attribute relates to the type of input element we're using. Here, we want a text field, which is also the default value.
+
+                        The placeholder attribute offers a hint or label within the text field, but will not be submitted if this field if left blank.
+
+                        The name attribute identifies the element so the response can be referenced after the form is submitted.
+                     -->
+                    <label for="name">Enter full name:</label>
+                    <input type="text" class="form-input" placeholder="Your Name" name="name" id="name">
+
+                    <!-- 
+                        When a user inputs a value into an email input type and clicks the 
+                        submit button, the browser automatically validates that value. 
+                        If the value doesn't look like an email address, the browser 
+                        will not submit the form. Instead, the browser will display a helpful 
+                        validation warning next to the email input field.
+                     -->
+
+                    <label for="email">Enter email address:</label>
+                    <input type="email" class="form-input" placeholder="Email Address" name="email" id="email">
+
+                    <!-- 
+                        Desktop browsers treat the tel input type the same as the default 
+                        text type. They don't automatically validate the user's inputted value. 
+                        However, browsers on mobile devices will display a numeric keypad for 
+                        the user to input a value, rather than a standard keyboard. 
+                        This is a lovely experience for mobile users. 
+                        Considering that the majority of website visits come from browsers on 
+                        mobile devices, we should provide this experience.
+
+                        It's easy to convert the email and phone inputs to these special types. 
+                        Just change the type attribute of the email input to email, 
+                        and the type attribute of the phone input to tel.
+                     -->
+
+                    <label for="phone">Enter a telephone number:</label>
+                    <input type="tel" class="form-input" placeholder="Phone Number" name="phone" id="phone">
+
+                    <!-- 
+                        Radio buttons 
+                        typically used in groups using the name attribute as the group reference,
+                        and each radio button must have the same name value 
+                        to be considered in the same group. This is how the browser identifies 
+                        that a group of choices can have an exclusive singular answer. 
+                        In this case, the value of the radio group in name is trainer-confirm.
+
+                        the <label> links the displayed values, Yes and No, 
+                        to their respective radio inputs. This link enhances accessibility 
+                        by allowing users to click on the label's text as well as the 
+                        radio buttons, which provides more clickable surface area.
+                    -->
+
+                    <p>
+                        Have you worked out with a trainer before?
+                        <input type="radio" name="trainer-confirm" id="trainer-yes">
+                        <label for="trainer-yes">Yes</label>
+
+                        <!-- 
+                            The for attribute references the radio button to which 
+                            the label belongs. The value for the for attribute must match 
+                            the value of the id attribute of the <input> element.
+                         -->
+
+                        <input type="radio" name="trainer-confirm" id="trainer-no">
+                        <label for="trainer-no">No</label>
+                    </p>
+
+                    <!-- checkbox -->
+
+                    <p>
+                        <label for="checkbox">I acknowledge that I am at least 18 years of age</label>
+                        <input type="checkbox" name="age-confirm" id="checkbox">
+                    </p>
+
+                    <!-- submit button -->
+
+                    <button type="submit">Get Running!</button>
+
+                </form>
+            </div>
 
         </section>
+        <!-- Hero end -->
 
         <!-- what we do section -->
         <section>
@@ -54,6 +145,12 @@
         <!-- footer -->
         <footer>
             <h2>❤️ Made with love by Run Buddy.</h2>
+            <div>
+                <a href="#">Read Our Privacy Policy</a>
+                <br>
+                &copy; 2019 Run Buddy, Inc.
+            </div>
+            
         </footer>
         
          

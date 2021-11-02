@@ -183,11 +183,12 @@ space between them */
 
 }
 
+/* labels above input fields in the form */
 .hero-form label {
     margin: 0 5px;
 }
 
-/* get running submit button */
+/* Get running submit button */
 .hero-form button {
     background-color: #024e76;
     color: #fce138;

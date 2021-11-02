@@ -196,3 +196,37 @@ space between them */
     padding: 10px 20px;
     font-size: 16px;
 }
+
+/* what we do section */
+.intro {
+    text-align: center;
+}
+
+.intro h2 {
+    font-size: 55px;
+    color: #024e76;
+    margin-bottom: 35px;
+    padding: 0 100px 20px 100px;
+    border-bottom: 3px solid #fce138;
+    /* We chose to use the inline-block value instead of the inline 
+    value so it can have the best of both worlds. It's now an inline element, 
+    but things like padding still behave like they would on block elements. 
+    Coupled with the text-align property from before, we now have a 
+    center-aligned heading with an appropriately sized bottom border that 
+    doesnt take up the whole width*/
+    display: inline-block;
+
+}
+
+.intro p {
+  line-height: 1.7;
+  color: #39a6b2;
+  width: 80%;
+  font-size: 20px;
+  /* centers an element with a width less than 100% 
+  automatically on the left and right. Essentially, it tells the 
+  browser to calculate the margins for us. When the browser is asked 
+  to do this on both sides of an element, it will do its best to make 
+  them even, thus pushing the element into the center. */
+  margin: 0 auto;
+}

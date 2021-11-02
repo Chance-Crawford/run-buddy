@@ -202,21 +202,6 @@ space between them */
     text-align: center;
 }
 
-.intro h2 {
-    font-size: 55px;
-    color: #024e76;
-    margin-bottom: 35px;
-    padding: 0 100px 20px 100px;
-    border-bottom: 3px solid #fce138;
-    /* We chose to use the inline-block value instead of the inline 
-    value so it can have the best of both worlds. It's now an inline element, 
-    but things like padding still behave like they would on block elements. 
-    Coupled with the text-align property from before, we now have a 
-    center-aligned heading with an appropriately sized bottom border that 
-    doesnt take up the whole width*/
-    display: inline-block;
-
-}
 
 .intro p {
   line-height: 1.7;
@@ -229,4 +214,61 @@ space between them */
   to do this on both sides of an element, it will do its best to make 
   them even, thus pushing the element into the center. */
   margin: 0 auto;
+}
+
+/* what you do section */
+.steps {
+    text-align: center;
+    background: #fce138;
+}
+
+.steps div {
+    margin-bottom: 80px;
+}
+
+.steps img {
+    /* makes icons a lot smaller */
+    width: 15%;
+    margin: 10px 0;
+}
+
+.steps h3 {
+  color: #024e76;
+  font-size: 46px;
+  margin-top: 10px;
+}
+
+.steps p {
+  color: #39a6b2;
+  font-size: 23px;
+}
+
+/* makes text slightly smaller */
+.steps span {
+    font-size: 38px;
+}
+
+/* can be used for all h2 headings such as what you do and what we do */
+.section-title {
+    font-size: 55px;
+    color: #024e76;
+    margin-bottom: 35px;
+    padding: 0 100px 20px 100px;
+    border-bottom: 3px solid;
+    /* We chose to use the inline-block value instead of the inline 
+    value so it can have the best of both worlds. It's now an inline element, 
+    but things like padding still behave like they would on block elements. 
+    Coupled with the text-align property from before, we now have a 
+    center-aligned heading with an appropriately sized bottom border that 
+    doesnt take up the whole width*/
+    display: inline-block;
+}
+
+/* border color below h2 headings */
+.primary-border {
+    border-color: #fce138;
+}
+
+.secondary-border {
+    border-color: #39a6b2;
 }

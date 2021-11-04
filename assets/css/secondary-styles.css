@@ -1,0 +1,62 @@
+
+/* 
+We overrode the background-position and height properties and added 
+text-align and margin-bottom. Did you notice that we didn't even 
+list the background-image and background-size properties?
+
+The privacy policy page inherits from both stylesheets, but this
+stylesheet takes precedent since it was listed in the <head> of
+the privacy policy page last. Any conflicting properties are overwritten
+by this stylesheet.
+*/
+.hero {
+    background-position: bottom;
+    height: auto;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-title {
+    color: #fce138;
+    /* So that the <h2> element does not go full-width. 
+    cuts it down to how large the content is but also allows you to change the 
+    width of the element etc.  
+    */
+    display: inline-block;
+    border-bottom: 4px solid #fce138;
+    padding: 0 80px 15px 80px;
+    /* default bold <h2> not bold anymore */
+    font-weight: normal;
+    font-size: 42px;
+    font-style: italic;
+
+}
+
+/* privacy policy text */
+
+.secondary-content {
+    width: 80%;
+    margin: 0 auto;
+    color: #024e76;
+
+}
+
+.secondary-content h3 {
+    font-size: 25px;
+    margin: 20px 0;
+}
+
+.secondary-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 20px 0;
+}
+
+.secondary-content ul {
+    margin: 15px 20px;
+}
+
+.secondary-content li {
+    color: #39a6b2;
+    margin: 10px 0;
+}

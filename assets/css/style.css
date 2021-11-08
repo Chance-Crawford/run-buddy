@@ -30,11 +30,11 @@ header {
     /* padding top bottom, left right */
     padding: 20px 35px;
     background-color: #39a6b2;
-    /* check google docs css flexbox. This makes all direct child elements (h1, nav)
-    of the header flex items in the header.
+    /* check google docs css flexbox. This makes all direct child elements
+    of the header (h1, nav) flex items in the header.
     Adding flexbox can override the behavior of block elements, and 
-    display them side by side. overrides display property and changes 
-    all to "flex"
+    display them side by side. overrides display property and changes direct 
+    child elements to "flex"
     */
     display: flex;
     /* google docs css flexbox, this property can only be used when the
@@ -49,6 +49,10 @@ header {
     /* By default, the value of flex-wrap is set to none, so we need 
     to explicitly tell it to wrap to the next line if the screen width is smaller
     or the child elements are too big for the screen.
+
+    This will cause the nav element to break to the next line on smaller screens, 
+    but all the nav
+    items break in weird places. We can change this in the nav ul element css
     */
     flex-wrap: wrap;
 }
@@ -69,14 +73,35 @@ header nav {
     margin: 7px 0;
 }
 
-header nav ul li {
-    display: inline;
+header nav ul {
+    /* makes the li items go side by side, turns into flex items,
+    since they are direct children of the ul element
+    */
+    display: flex;
+    /* if screen is small (mobile) wrap content to other line if needed */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* vertically center the content for smaller screens */
+    align-items: center;
+    /* The other property we added, list-style, sets how 
+    a list item is styled (bullet points, dashes, etc.) and positioned 
+    (indented or outdented). We gave it a value of none to hide 
+    the bullet points, because we're changing some of the styles 
+    for the <header>. These changes might make the bullet points visible, 
+    which we don't want. 
+    */
+    list-style: none;
 }
 
 header nav ul li a {
     margin: 0 30px;
     font-weight: lighter;
-    font-size: 22px;
+    /* vw stands for viewport width. Font size is determined by the width
+    of the viewport. In this case we want the font size to be roughly
+    1.55% of the windows overall width. This means that if the browser grows 
+    or shrinks, that size will change relative to the new overall width.
+    */
+    font-size: 1.55vw;
 }
 
 /* footer style */

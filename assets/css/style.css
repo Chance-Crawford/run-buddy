@@ -55,6 +55,47 @@ header {
     items break in weird places. We can change this in the nav ul element css
     */
     flex-wrap: wrap;
+    /* Vendor prefix
+    Before certain CSS properties become standard, browsers will sometimes 
+    implement them in a more experimental capacity using a browser-specific 
+    prefix, known as a vendor prefix. When the CSS feature is standardized, 
+    later versions of the browser drop the prefix.
+    
+    For example, the border-radius property used to require vendor prefixes, 
+    as shown in the following code:
+
+    .rounded-corners {
+    -webkit-border-radius: 10px;  old versions of chrome and safari 
+    -moz-border-radius: 10px; old versions of firefox 
+    border-radius: 10px;  standardized browsers 
+
+    Until Safari joins the cool kids, we'll need to add a vendor prefix 
+    to the sticky header to make sure it will be supported by that browser.
+
+    Note that we put the prefixed version first in the CSS, and the 
+    standardized version second. We should always put the standardized 
+    version of a property at the end of a sequence of vendor-prefixed versions. 
+    The browser will always apply the last version that it can interpret, 
+    and if we list an earlier, experimental version of the property last in 
+    the listing, then it would be used instead of the finalized version. 
+    So for each property that requires vendor prefixes for cross-browser 
+    compatibility, always put the prefixed versions before the finalized version.
+  */
+    position: -webkit-sticky;
+    /* keeps header on top of page as you scroll. also in 
+    google docs css properties
+    */
+    position: sticky;
+    top: 0;
+
+    background-image: url("../images/hero-bg.jpg");
+    background-size: cover;
+    /* places the image relative to the viewport instead of the element.
+    were gonna use this so the header background image will line up perfectly with
+    the .hero background image
+    */
+    background-attachment: fixed;
+    background-position: 80%;
 }
 
 header h1 {
@@ -62,6 +103,8 @@ header h1 {
     font-size: 36px;
     color: #fce138;
     margin: 0;
+    /* check out google docs css properties for more info */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 header a {
@@ -102,8 +145,16 @@ header nav ul li a {
     or shrinks, that size will change relative to the new overall width.
     */
     font-size: 1.55vw;
+    /* check out google docs css properties for more info */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+header nav ul li a:hover {
+    background: #fce138;
+    color: #024e76;
+    border-radius: 15px;
+    text-shadow: none;
+}
 /* footer style */
 
 footer {
@@ -186,6 +237,12 @@ section {
     justify-content: center;
     flex-wrap: wrap;
     align-items: flex-start;
+    /* places the image relative to the viewport instead of the element.
+    were gonna use this so the header background image will line up perfectly with
+    the .hero background image
+    */
+    background-attachment: fixed;
+    background-position: 80%;
     
 }
 
@@ -204,16 +261,21 @@ section {
     font-style: italic;
     font-size: 55px;
     color: #fce138;
+    /* check out google docs css properties for more info */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .hero-form {
     color: #024e76;
-    background-color: #fce138;
+    /* set background color with opacity(alpha) of 80% */
+    background-color: rgba(252, 225, 56, 0.8);
     width: 40%;
     margin: 3.5%;
     /* The padding property creates an inner margin within the border. */
     padding: 20px;
     border: solid 3px #024e76;
+    /* rounded corners */
+    border-radius: 15px;
 
     /* 
     If we choose relative, we'd need to move the form container from its 
@@ -235,8 +297,11 @@ section {
     REPLACED WITH FLEXBOX
     */
 
+    /* check out google docs css properties for more info */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     
 }
+
 
 /* Targets "Get started today" */
 .hero-form h3 {
@@ -259,6 +324,7 @@ space between them */
     /* give the box more space padding inside */
     padding: 7px 15px;
     color: #024e76;
+    background-color: rgba(255,255,255, 0.75);
     /* Increases space between input box to element below it, also 
     increases parent's box size */
     margin-bottom: 15px;
@@ -266,7 +332,16 @@ space between them */
     touch the sides of the box when width = 100%. width percentage is 
     relative to the parent container's size */
     width: 100%;
+    border-radius: 10px;
+}
 
+/* Using the :focus state pseudo class, we can also visually highlight the form 
+input field that the user is currently typing in.
+*/
+.form-input:focus {
+    background-color: rgba(255,255,255, 1);
+    /* removes browser's default blue outline when element is clicked */
+    outline: none;
 }
 
 /* labels above input fields in the form */
@@ -281,6 +356,11 @@ space between them */
     border: none;
     padding: 10px 20px;
     font-size: 16px;
+    border-radius: 10px;
+}
+
+.hero-form button:hover {
+    background-color: #39a6b2;
 }
 
 /* what we do section */
@@ -330,6 +410,17 @@ space between them */
     */
     justify-content: space-between;
 
+}
+
+/* The .step:last-child selector pseudo class means that 
+the CSS declarations will only 
+apply to an element with class step that's also the last element in 
+whatever container it's in. 
+
+In this case, it takes off the bottom border from the last child.
+*/
+.step:last-child {
+    border-bottom: none;
 }
 
 .step h3 {
@@ -560,6 +651,12 @@ elements that are the direct children of contact-info.
     width: 100%;
     margin-bottom: 15px;
     margin-top: 5px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    background: white;
 }
 
 .contact-form button {
@@ -570,6 +667,12 @@ elements that are the direct children of contact-info.
     text-align: center;
     padding: 15px 0;
     font-size: 16px;
+    border-radius: 10px;
+}
+
+.contact-form button:hover {
+    color: #fce138;
+    background: #39a6b2;
 }
 
 .contact-info a {
@@ -599,6 +702,10 @@ elements that are the direct children of contact-info.
     header {
         padding-bottom: 0;
         justify-content: center;
+        /* To undo sticky header for smaller devices,
+        since it takes up too much space
+        */
+        position: relative;
     }
 
     header h1 {
@@ -737,7 +844,8 @@ elements that are the direct children of contact-info.
         text-align: center;
     }
 
-    /* make all direct children of contact-info each have their own line */
+    /* make all direct children of contact-info in reach out each 
+    have their own line */
     .contact-info > * {
         flex: 0 100%;
     }

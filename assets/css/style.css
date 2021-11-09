@@ -592,17 +592,162 @@ elements that are the direct children of contact-info.
 
 /* Media Queries */
 
+/* more info can be found in google docs, media queries */
+
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px) {
+    header {
+        padding-bottom: 0;
+        justify-content: center;
+    }
+
+    header h1 {
+        /* forces links to go beneath h1 */
+        width: 100%;
+        text-align: center;
+    }
+
+    header nav ul {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    header nav ul li a {
+        font-size: 20px;
+    }
+
+    footer h2, footer div {
+        text-align: center;
+        /* each take up their own line as if they are block elements
+        (even though they have a display value of flex and are flex items)
+        */
+        /* 
+        Because both the <header> and <footer> elements are flex containers, 
+        we only had to tell both of their children to be 100% of the width. 
+        Because flex-wrap is turned on to wrap overflowing content, it allows 
+        both children to get their own row one on top of the other. The only 
+        thing we need to do then is adjust their justification properties to 
+        center them on the page, and adjust some font sizes and spacing to 
+        tighten up the design.
+        */
+        width: 100%;
+    }
+
+    .hero-cta, .hero-form {
+        /* refer to comment above */
+        width: 100%;
+    }
+
+    .hero-cta {
+        text-align: center;
+    }
+
+    .section-title {
+        width: 80%;
+    }
+
+    .trainer {
+        /* Do not grow to fill unused space, but be at least 70% of the
+        width of the container.
+        */
+        flex: 0 70%;
+    }
+
+    .contact-info iframe {
+        /* so that the first two elements in reach out section
+        can share a row with more space and the 
+        map gets pushed down and gets its own row, 
+        creating a more unique layout than the others.
+        */
+        flex: 1 100%;
+    }
+
 
   }
   
+
   /* MEDIA QUERY FOR TABLETS AND SMALLER */
+  /* Before altering anything, this section looks pretty good due to
+  the media query above it making more suitable adjustments for smaller screens.
+  but there are still a few changes that can be made.
+  */
   @media screen and (max-width: 768px) {
+    /* gives "what you do" section some breathing room */
+    section {
+        padding: 30px 15px;
+    }
+
+    /* each step of "what you do" */
+    .step h3 {
+        flex: 1 100%;
+        text-align: center;
+    }
+
+    /* the icon and words of "what you do" section */
+    .step-info {
+        flex: 2 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* icons */
+    .step-img {
+        /* dont grow, but be at least 32% of width*/
+        flex: 0 32%;
+        margin-right: 0;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .step-text {
+        /* text gets its own line below image */
+        flex: 100%;
+    }
 
   }
   
+
   /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+  /* For the 575px width breakpoint, we really only need to 
+  tackle a few aesthetic updates and fix the "Reach Out" section to read a 
+  little bit better.  */
   @media screen and (max-width: 575px) {
+
+    .hero-form button {
+        width: 100%;
+    }
+
+    .section-title {
+        width: 95%;
+    }
+
+    /* text right under "what we do" */
+    .intro p {
+        width: 100%;
+    }
+
+    /* make trainer cards 100% of width (minus padding on outside) */
+    .trainer {
+        flex: 0 100%;
+    }
+
+    /* center all text in "reach out" section */
+    .contact-info {
+        text-align: center;
+    }
+
+    /* make all direct children of contact-info each have their own line */
+    .contact-info > * {
+        flex: 0 100%;
+    }
+
+    .contact-form {
+        /* The order property can rearrange how child elements appear on 
+        a page without moving the HTML. This works because at this screen size
+        we want the contact form to be after the map.
+        */
+        order: 3;
+    }
 
   }

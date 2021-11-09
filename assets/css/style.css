@@ -284,9 +284,7 @@ space between them */
 
 /* what we do section */
 
-.intro {
-    text-align: center;
-}
+
 
 
 .intro p {
@@ -300,55 +298,131 @@ space between them */
   to do this on both sides of an element, it will do its best to make 
   them even, thus pushing the element into the center. */
   margin: 0 auto;
+  text-align: center;
 }
 
 /* what you do section */
 
+/* container that incapsulates all of the steps */
 .steps {
-    text-align: center;
     background: #fce138;
 }
 
-.steps div {
-    margin-bottom: 80px;
+/* each individual step box. step 1-4 */
+.step {
+    margin: 50px auto;
+    padding-bottom: 50px;
+    width: 80%;
+    border-bottom: 1px solid #39a6b2;
+    /* turns step name h3, and step-info div into flex items. 
+    Those are the 2 direct children of step.
+    */
+    display: flex;
+    flex-wrap: wrap;
+    /* Step h3 is now vertically in the center of the box.
+    if align items was default, the "step 1 or step 2..."
+    would be at the top of the box.
+    */
+    align-items: center;
+    /* empty space from the 80% width is now put between the children.
+    h3 and step-info 
+    */
+    justify-content: space-between;
+
 }
 
-.steps img {
-    /* makes icons a lot smaller */
-    width: 15%;
-    margin: 10px 0;
-}
-
-.steps h3 {
+.step h3 {
   color: #024e76;
   font-size: 46px;
-  margin-top: 10px;
+  /* see google docs flexbox */
+  /* The value we provided to the step's flexbox children uses 
+  the <flex-grow value> <flex-basis value> syntax, meaning 
+  that .step h3 will be at least 30% wide and will receive any extra 
+  space in the container. Also, .step-info will be at least 70% wide 
+  but will receive any extra space in the container at a 2-to-1 ratio. 
+  In other words, it will receive two more units of unused space than a 
+  sibling with a flex-grow value of 1.
+
+  */
+  flex: 1 30%;
 }
 
-.steps p {
+.step-info{
+    /* see google docs flexbox */
+    /* The value we provided to the step's flexbox children uses 
+    the <flex-grow value> <flex-basis value> syntax, meaning 
+    that .step h3 will be at least 30% wide and will receive any extra 
+    space in the container. Also, .step-info will be at least 70% wide 
+    but will receive any extra space in the container at a 2-to-1 ratio. 
+    In other words, it will receive two more units of unused space than a 
+    sibling with a flex-grow value of 1 
+    */
+    flex: 2 70%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.step-img {
+    flex: 1 12%;
+    margin-right: 20px;
+}
+
+.step-text {
+    /* Now the child elements have a flex-grow property of 1 and 12, 
+    respectively. This means that .step-text will be 
+    allotted 12 times more unused space than .step-img, but .step-img 
+    at the very least must be 12 percent of the width of .step-info.
+    */
+    flex: 12;
+}
+
+.step-img img {
+    /* One last thing we need to do is tell the <img> element to limit 
+    its width to be whatever its container is (step-img). This isn't a 
+    problem with most browsers, but Microsoft Edge can be a little buggy 
+    with it, so it's always worth putting in a little extra to have a 
+    uniform design across browsers. 
+    */
+    max-width: 100%;
+}
+
+.step-text h4 {
+    font-size: 26px;
+    line-height: 1.5;
+    color: #024e76;
+}
+
+.step-text p {
   color: #39a6b2;
-  font-size: 23px;
+  font-size: 18px;
 }
 
-/* makes text slightly smaller */
-.steps span {
-    font-size: 38px;
-}
 
 /* can be used for all h2 headings such as what you do and what we do */
 .section-title {
     font-size: 55px;
     color: #024e76;
-    margin-bottom: 35px;
-    padding: 0 100px 20px 100px;
     border-bottom: 3px solid;
     /* We chose to use the inline-block value instead of the inline 
     value so it can have the best of both worlds. It's now an inline element, 
     but things like padding still behave like they would on block elements. 
     Coupled with the text-align property from before, we now have a 
     center-aligned heading with an appropriately sized bottom border that 
-    doesnt take up the whole width*/
+    doesnt take up the whole width
+
     display: inline-block;
+    margin-bottom: 35px;
+    padding: 0 100px 20px 100px;
+    REPLACED WITH FLEXBOX
+    */
+
+    /* center section titles and adjust margin and padding  */
+    padding-bottom: 20px;
+    text-align: center;
+    margin: 0 auto 35px auto;
+    width: 50%;
+    
 }
 
 /* border color below h2 headings */
@@ -363,7 +437,7 @@ space between them */
 /* meet the trainers section */
 
 .trainers {
-    text-align: center;
+
 }
 
 /* individual article element per trainer */
@@ -396,13 +470,7 @@ The overflow property told the trainer's <article> element that it does in fact 
     width: 65%;
 }
 
-.text-left {
-    text-align: left;
-}
 
-.text-right {
-    text-align: right;
-}
 
 .trainer-bio h3 {
     font-size: 32px;
@@ -424,7 +492,6 @@ The overflow property told the trainer's <article> element that it does in fact 
 
 .contact {
     background: #024e76;
-    text-align: center;
 }
 
 .contact h2 {
@@ -472,4 +539,18 @@ The overflow property told the trainer's <article> element that it does in fact 
 
 .contact-info a {
     color: #fce138;
+}
+
+/* Utility classes */
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.flex-row {
+    display: flex;
 }
